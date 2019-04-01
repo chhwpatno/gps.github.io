@@ -29,7 +29,8 @@ function getLocation() {
 
 function showPosition(position) {
   var latlon = position.coords.latitude + "," + position.coords.longitude;
-  x.innerHTML = latlon;
+  var obj = jQuery.parseJSON( '{ "latitude": position.coords.latitude,"longitude":position.coords.longitude }' );	
+  x.innerHTML = '{ "latitude": position.coords.latitude,"longitude":position.coords.longitude }';
   alert(x.innerHTML);
   var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
   +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
