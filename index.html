@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>
-		$(function() {
-		});
-	</script>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$(function() {
+	});
+</script>	
 </head>
 
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <p id="demo">Click the button to get your position.</p>
 
@@ -32,6 +32,7 @@ function showPosition(position) {
   var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
   +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
   document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+  alert(latlon);	
 }
 //To use this code on your website, get a free API key from Google.
 //Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
