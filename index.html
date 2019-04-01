@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 	$(function() {
 	});
@@ -26,8 +25,6 @@ function getLocation() {
 
 function showPosition(position) {
   var latlon = position.coords.latitude + "," + position.coords.longitude;
-  var obj = jQuery.parseJSON( '{ "latitude": position.coords.latitude,"longitude":position.coords.longitude }' );
-  console.log(obj);
   x.innerHTML = '{ "latitude": position.coords.latitude,"longitude":position.coords.longitude }';
   var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
   +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
