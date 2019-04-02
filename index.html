@@ -9,7 +9,8 @@
 <div id="mapholder"></div>
 
 <script>
-var x = document.getElementById("demo");
+var gps=false;
+var x = document.getElementById("demo");  
 getLocation();
 function getLocation() {
   if (navigator.geolocation) {
@@ -20,8 +21,9 @@ function getLocation() {
 }
 
 function showPosition(position) {
+  gps=true;
   var latlon = position.coords.latitude + "," + position.coords.longitude;
-  x.innerHTML = '{ "latitude": '+position.coords.latitude+',"longitude":'+position.coords.longitude+'}';
+  x.innerHTML = '{"latitude":'+position.coords.latitude+',"longitude":'+position.coords.longitude+'}';
   var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
   +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
   //document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";	
@@ -50,19 +52,17 @@ function CopyTextToClipboard(id) {
   var TextRange = document.createRange();
   TextRange.selectNode(document.getElementById(id));
   sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(TextRange);
+  sel.removeAllRanges();
+  sel.addRange(TextRange);
   document.execCommand("copy");
-  alert("複製完成！") //此行可加可不加
+  alert("定位完成,確定返回！") //此行可加可不加
+  history.back();
 }
-  
-
+if(gps){
+  CopyTextToClipboard('demo');
+}
 
 </script>
-  
-<a href="javascript:void(0)" onclick="CopyTextToClipboard('demo')">
-<i class="fas fa-clipboard"></i> 單鍵複製
-</a>
 
 </body>
 </html>
