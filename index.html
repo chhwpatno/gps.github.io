@@ -59,10 +59,10 @@ function CopyTextToClipboard(id) {
   sel.addRange(TextRange);
   document.execCommand("copy");
   alert("定位完成,確定返回！") //此行可加可不加
-  //history.back();
+  history.back();
 }
 if(gps){
-  CopyTextToClipboard('demo');
+  //CopyTextToClipboard('demo');
 }
 
 </script>
