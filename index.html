@@ -45,7 +45,24 @@ function showError(error) {
       break;
   }
 }
+  
+function CopyTextToClipboard(id) {
+  var TextRange = document.createRange();
+  TextRange.selectNode(document.getElementById(id));
+  sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(TextRange);
+  document.execCommand("copy");
+  alert("複製完成！") //此行可加可不加
+}
+  
+
+
 </script>
+  
+<a href="javascript:void(0)" onclick="CopyTextToClipboard('demo')">
+<i class="fas fa-clipboard"></i> 單鍵複製
+</a>
 
 </body>
 </html>
