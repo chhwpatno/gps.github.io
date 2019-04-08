@@ -11,7 +11,6 @@
 <body>
 
 <script>
-var gps=false;
 var msg="";
 var lat="";
 var lng="";
@@ -61,8 +60,7 @@ function wirte_record(){
     type: 'POST',
     data: {
 	param1:$.urlParam('param1'),
-	param2:$.urlParam('param2'),	    
-	param3:$.urlParam('param3'),
+	param2:$.urlParam('param2'),
 	lat:lat,
 	lng:lng
     },
