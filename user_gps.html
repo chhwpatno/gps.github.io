@@ -28,7 +28,6 @@ function getLocation() {
     wirte_record();
     alert(msg);
   }
-  window.history.back();
 }
 function showPosition(position) {
   lat=position.coords.latitude;
@@ -81,6 +80,8 @@ function wirte_record(){
 }
 	
 getLocation();
+window.history.back();
+break;
 </script>
 	
 </body>
