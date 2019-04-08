@@ -71,17 +71,17 @@ function wirte_record(){
     success: function(response) {
       returnData = JSON.parse(response);
       if( returnData.status=="OK" ){
-	alert(returnData.msg);
+	//alert(returnData.msg);
+	history.back(alert(returnData.msg));
       }else{
-	alert(returnData.msg);
+	//alert(returnData.msg);
+	history.back(alert(returnData.msg));
       }
     }
   });	
 }
 	
 getLocation();
-window.history.back();
-break;
 </script>
 	
 </body>
