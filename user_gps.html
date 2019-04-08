@@ -26,7 +26,7 @@ function getLocation() {
   } else {
     msg = "Geolocation is not supported by this browser.";
     wirte_record();
-    alert(msg);
+    history.back(alert(msg));
   }
 }
 function showPosition(position) {
@@ -51,7 +51,7 @@ function showError(error) {
       break;
   }
   wirte_record();
-  alert(msg);
+  history.back(alert(msg));
 }
 	
 function wirte_record(){
