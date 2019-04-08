@@ -27,7 +27,8 @@ function getLocation() {
     msg = "Geolocation is not supported by this browser.";
     wirte_record();
     alert(msg);
-  }  
+  }
+  window.history.back();
 }
 function showPosition(position) {
   lat=position.coords.latitude;
