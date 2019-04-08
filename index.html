@@ -14,6 +14,12 @@
 <script>
 var gps=false;
 var x = document.getElementById("demo");  
+  
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	return results[1] || 0;
+}
+alert( "1:"+$.urlParam('param1')+"  2:"+$.urlParam('param2')+"  3:"+$.urlParam('param3') );
 
 function getLocation() {
   if (navigator.geolocation) {
