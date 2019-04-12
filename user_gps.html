@@ -67,7 +67,7 @@ function wirte_record(){
 	lng:lng
     },
     error: function(xhr) {
-      alert('Ajax request 發生錯誤');
+      alert('Ajax request 發生錯誤 '+window.location.href);
     },
     success: function(response) {
       returnData = JSON.parse(response);
