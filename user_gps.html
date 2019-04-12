@@ -32,7 +32,7 @@ function getLocation() {
 function showPosition(position) {
   lat=position.coords.latitude;
   lng=position.coords.longitude;
-  wirte_record();
+  write_record_get();
 }
 	
 function showError(error) {
@@ -50,7 +50,7 @@ function showError(error) {
       msg = "An unknown error occurred."
       break;
   }
-  wirte_record();
+  write_record_get();
   history.back(alert(msg));
 }
 	
