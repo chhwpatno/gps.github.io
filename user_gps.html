@@ -55,7 +55,7 @@ function showError(error) {
 }
 	
 function write_record_ajax(){
-  $.post("http://163.29.77.144:3001/home_care/ajax/insert_punch.php?v='+Math.random()",
+  $.post("http://163.29.77.144:3001/home_care/ajax/insert_punch.php?v="+Math.random(),
   {
     param1: $.urlParam('param1'),
     param2: $.urlParam('param2'),
