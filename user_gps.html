@@ -25,14 +25,14 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else {
     msg = "Geolocation is not supported by this browser.";
-    write_record_get();
+    write_record_post();
     history.back(alert(msg));
   }
 }
 function showPosition(position) {
   lat=position.coords.latitude;
   lng=position.coords.longitude;
-  write_record_get();
+  write_record_post();
 }
 	
 function showError(error) {
@@ -50,16 +50,24 @@ function showError(error) {
       msg = "An unknown error occurred."
       break;
   }
-  write_record_get();
+  write_record_post();
   history.back(alert(msg));
 }
 	
-function write_record_get(){
-  $.get( 'http://163.29.77.144:3001/home_care/ajax/insert_punch.php?v='+Math.random()+'param1='+$.urlParam('param1')+'param2='+$.urlParam('param2')+'param3='+$.urlParam('param3')+'param4='+$.urlParam('param4')+'lat='+$.urlParam('lat')+'lng='+$.urlParam('lng'),
-    function(data,status){
-      returnData = JSON.parse(data); 
-      history.back(alert("status:"+status+" "+returnData.msg));
-    });
+function write_record_post(){
+  $.post("http://163.29.77.144:3001/home_care/ajax/insert_punch.php?v='+Math.random()",
+  {
+    param1: $.urlParam('param1'),
+    param2: $.urlParam('param2'),
+    param3: $.urlParam('param3'),
+    param4: $.urlParam('param4'),	
+    lat:lat,
+    lng:lng
+  },
+  function (data, status) {
+    returnData = JSON.parse(data);
+    history.back(alert("("+status+"):"+returnData.msg));
+  });
 }
 	
 function write_record(){
