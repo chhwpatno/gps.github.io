@@ -25,14 +25,14 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else {
     msg = "Geolocation is not supported by this browser.";
-    write_record_ajax();
+    write_record();
     history.back(alert(msg));
   }
 }
 function showPosition(position) {
   lat=position.coords.latitude;
   lng=position.coords.longitude;
-  write_record_ajax();
+  write_record();
 }
 	
 function showError(error) {
@@ -50,7 +50,7 @@ function showError(error) {
       msg = "An unknown error occurred."
       break;
   }
-  write_record_ajax();
+  write_record();
   history.back(alert(msg));
 }
 	
