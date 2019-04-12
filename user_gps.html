@@ -25,7 +25,7 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else {
     msg = "Geolocation is not supported by this browser.";
-    wirte_record();
+    write_record_get();
     history.back(alert(msg));
   }
 }
@@ -54,7 +54,15 @@ function showError(error) {
   history.back(alert(msg));
 }
 	
-function wirte_record(){
+function write_record_get(){
+  $.get( 'http://163.29.77.144:3001/home_care/ajax/insert_punch.php?v='+Math.random()+'param1='+$.urlParam('param1')+'param2='+$.urlParam('param2')+'param3='+$.urlParam('param3')+'param4='+$.urlParam('param4')+'lat='+$.urlParam('lat')+'lng='+$.urlParam('lng'),
+    function(data,status){
+      returnData = JSON.parse(data); 
+      history.back(alert("status:"+status+" "+returnData.msg));
+    });
+}
+	
+function write_record(){
   $.ajax({
     url: 'http://163.29.77.144:3001/home_care/ajax/insert_punch.php?v='+Math.random(),
     type: 'POST',
