@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="Content-Security-Policy">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+  <title>地圖</title>
+  {{include file="../../../../tpl/common/html/admin/include_script.html"}}
+  
+
+</head>
+<body onload="map_show(23.9508406,120.5274858)">
+<div id="show_map" style=" display: none;" ></div>
+<input onclick="window.close();" value="關閉視窗" type="button">
+	
+<script>
+function map_show(_lat, _lng) {
+	$("#show_map").hide("fast");
+	if( _lat<0 || _lng<0){
+		window.close();
+		return false;
+	}
+  var latlon = _lat + "," + _lng;
+  var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+	+latlon+"&markers="+latlon+"&zoom=15&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&format=jpg&maptype=terrain";
+
+	document.getElementById("show_map").innerHTML = "<img src='"+img_url+"'>";
+	$("#show_map").show("fast");
+}
+</script>
+
+</body>	
+</html>
