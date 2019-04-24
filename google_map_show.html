@@ -29,6 +29,7 @@ function map_show(_lat, _lng) {
 		return false;
 	}
   var latlon = _lat + "," + _lng;
+	alert(latlon);
   var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
 	+latlon+"&markers="+latlon+"&zoom=15&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&format=jpg&maptype=terrain";
 
